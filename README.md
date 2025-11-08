@@ -55,8 +55,8 @@
 - Graphviz：用于渲染图形  
 
   ```bash
-  sudo apt install graphviz -y   # Ubuntu/Debian
-  sudo apt install graphviz       
+  sudo apt update -y   # Ubuntu/Debian
+  sudo apt install graphviz -y        
   
   brew install graphviz           # macOS
   ```
