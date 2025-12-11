@@ -1,4 +1,4 @@
-# YAML2ModelGraph v1.0
+# YAML2ModelGraph
 
 <div align="right">
 
@@ -13,7 +13,7 @@
 
 ## 📖 项目简介
 
-**YAML2ModelGraph v1.0** 是一个专业的 YOLO 模型架构可视化工具，能够将 Ultralytics YOLO 模型的 YAML 配置文件自动转换为精美的 SVG 架构图。
+**YAML2ModelGrap** 是一个专业的 YOLO 模型架构可视化工具，能够将 Ultralytics YOLO 模型的 YAML 配置文件自动转换为精美的 SVG 架构图。
 
 ### ✨ 核心特性
 
