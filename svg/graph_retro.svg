@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 914">
+        <style>
+            text { font-family: "Consolas, 'Courier New', monospace"; }
+        </style>
+        <defs>
+            <marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,6 L6,3 z" fill="#504945" />
+            </marker>
+        </defs>
+        <rect x="740" y="30" width="220" height="884" fill="#FBF1C7" />
+<rect x="220" y="30" width="520" height="884" fill="#EBDBB2" />
+<rect x="0" y="30" width="220" height="884" fill="#FBF1C7" />
+<rect x="35.0" y="100" width="150" height="44" rx="3" fill="#F9F5D7" stroke="#3C3836" stroke-width="1.0"/>
+<text x="110.0" y="115.0" font-weight="bold" font-size="14" fill="#282828" text-anchor="middle" dominant-baseline="middle">Conv</text>
+<text x="110.0" y="132.0" font-size="11" fill="#928374" text-anchor="middle" dominant-baseline="middle">2x / 64c</text>
+<rect x="35.0" y="180" width="150" height="44" rx="3" fill="#F9F5D7" stroke="#3C3836" stroke-width="1.0"/>
+<text x="110.0" y="195.0" font-weight="bold" font-size="14" fill="#282828" text-anchor="middle" dominant-baseline="middle">Conv</text>
+<text x="110.0" y="212.0" font-size="11" fill="#928374" text-anchor="middle" dominant-baseline="middle">4x / 128c</text>
+<rect x="35.0" y="260" width="150" height="44" rx="3" fill="#F9F5D7" stroke="#3C3836" stroke-width="1.0"/>
+<text x="110.0" y="275.0" font-weight="bold" font-size="14" fill="#282828" text-anchor="middle" dominant-baseline="middle">C2f</text>
+<text x="110.0" y="292.0" font-size="11" fill="#928374" text-anchor="middle" dominant-baseline="middle">4x / 128c</text>
+<rect x="35.0" y="340" width="150" height="44" rx="3" fill="#F9F5D7" stroke="#3C3836" stroke-width="1.0"/>
+<text x="110.0" y="355.0" font-weight="bold" font-size="14" fill="#282828" text-anchor="middle" dominant-baseline="middle">Conv</text>
+<text x="110.0" y="372.0" font-size="11" fill="#928374" text-anchor="middle" dominant-baseline="middle">8x / 256c</text>
+<rect x="35.0" y="420" width="150" height="44" rx="3" fill="#F9F5D7" stroke="#3C3836" stroke-width="1.0"/>
+<text x="110.0" y="435.0" font-weight="bold" font-size="14" fill="#282828" text-anchor="middle" dominant-baseline="middle">C2f</text>
+<text x="110.0" y="452.0" font-size="11" fill="#928374" text-anchor="middle" dominant-baseline="middle">8x / 256c</text>
+<rect x="35.0" y="500" width="150" height="44" rx="3" fill="#F9F5D7" stroke="#3C3836" stroke-width="1.0"/>
+<text x="110.0" y="515.0" font-weight="bold" font-size="14" fill="#282828" text-anchor="middle" dominant-baseline="middle">Conv</text>
+<text x="110.0" y="532.0" font-size="11" fill="#928374" text-anchor="middle" dominant-baseline="middle">16x / 512c</text>
+<rect x="35.0" y="580" width="150" height="44" rx="3" fill="#F9F5D7" stroke="#3C3836" stroke-width="1.0"/>
+<text x="110.0" y="595.0" font-weight="bold" font-size="14" fill="#282828" text-anchor="middle" dominant-baseline="middle">C2f</text>
+<text x="110.0" y="612.0" font-size="11" fill="#928374" text-anchor="middle" dominant-baseline="middle">16x / 512c</text>
+<rect x="35.0" y="660" width="150" height="44" rx="3" fill="#F9F5D7" stroke="#3C3836" stroke-width="1.0"/>
+<text x="110.0" y="675.0" font-weight="bold" font-size="14" fill="#282828" text-anchor="middle" dominant-baseline="middle">Conv</text>
+<text x="110.0" y="692.0" font-size="11" fill="#928374" text-anchor="middle" dominant-baseline="middle">32x / 1024c</text>
+<rect x="35.0" y="740" width="150" height="44" rx="3" fill="#F9F5D7" stroke="#3C3836" stroke-width="1.0"/>
+<text x="110.0" y="755.0" font-weight="bold" font-size="14" fill="#282828" text-anchor="middle" dominant-baseline="middle">C2f</text>
+<text x="110.0" y="772.0" font-size="11" fill="#928374" text-anchor="middle" dominant-baseline="middle">32x / 1024c</text>
+<rect x="35.0" y="820" width="150" height="44" rx="3" fill="#F9F5D7" stroke="#3C3836" stroke-width="1.0"/>
+<text x="110.0" y="835.0" font-weight="bold" font-size="14" fill="#282828" text-anchor="middle" dominant-baseline="middle">SPPF</text>
+<text x="110.0" y="852.0" font-size="11" fill="#928374" text-anchor="middle" dominant-baseline="middle">32x / 1024c</text>
+<rect x="255.0" y="100" width="150" height="44" rx="3" fill="#F9F5D7" stroke="#3C3836" stroke-width="1.0"/>
+<text x="330.0" y="115.0" font-weight="bold" font-size="14" fill="#282828" text-anchor="middle" dominant-baseline="middle">nn.Upsample</text>
+<text x="330.0" y="132.0" font-size="11" fill="#928374" text-anchor="middle" dominant-baseline="middle">16x / 1024c</text>
+<rect x="255.0" y="220" width="150" height="44" rx="3" fill="#FABD2F" stroke="#3C3836" stroke-width="1.5"/>
+<text x="330.0" y="235.0" font-weight="bold" font-size="14" fill="#282828" text-anchor="middle" dominant-baseline="middle">Concat</text>
+<text x="330.0" y="252.0" font-size="11" fill="#928374" text-anchor="middle" dominant-baseline="middle">16x / 1c</text>
+<rect x="255.0" y="340" width="150" height="44" rx="3" fill="#F9F5D7" stroke="#3C3836" stroke-width="1.0"/>
+<text x="330.0" y="355.0" font-weight="bold" font-size="14" fill="#282828" text-anchor="middle" dominant-baseline="middle">C2f</text>
+<text x="330.0" y="372.0" font-size="11" fill="#928374" text-anchor="middle" dominant-baseline="middle">16x / 512c</text>
+<rect x="255.0" y="460" width="150" height="44" rx="3" fill="#F9F5D7" stroke="#3C3836" stroke-width="1.0"/>
+<text x="330.0" y="475.0" font-weight="bold" font-size="14" fill="#282828" text-anchor="middle" dominant-baseline="middle">nn.Upsample</text>
+<text x="330.0" y="492.0" font-size="11" fill="#928374" text-anchor="middle" dominant-baseline="middle">8x / 512c</text>
+<rect x="255.0" y="580" width="150" height="44" rx="3" fill="#FABD2F" stroke="#3C3836" stroke-width="1.5"/>
+<text x="330.0" y="595.0" font-weight="bold" font-size="14" fill="#282828" text-anchor="middle" dominant-baseline="middle">Concat</text>
+<text x="330.0" y="612.0" font-size="11" fill="#928374" text-anchor="middle" dominant-baseline="middle">8x / 1c</text>
+<rect x="255.0" y="700" width="150" height="44" rx="3" fill="#F9F5D7" stroke="#3C3836" stroke-width="1.0"/>
+<text x="330.0" y="715.0" font-weight="bold" font-size="14" fill="#282828" text-anchor="middle" dominant-baseline="middle">C2f</text>
+<text x="330.0" y="732.0" font-size="11" fill="#928374" text-anchor="middle" dominant-baseline="middle">8x / 256c</text>
+<rect x="255.0" y="820" width="150" height="44" rx="3" fill="#F9F5D7" stroke="#3C3836" stroke-width="1.0"/>
+<text x="330.0" y="835.0" font-weight="bold" font-size="14" fill="#282828" text-anchor="middle" dominant-baseline="middle">Conv</text>
+<text x="330.0" y="852.0" font-size="11" fill="#928374" text-anchor="middle" dominant-baseline="middle">16x / 256c</text>
+<rect x="555.0" y="100" width="150" height="44" rx="3" fill="#FABD2F" stroke="#3C3836" stroke-width="1.5"/>
+<text x="630.0" y="115.0" font-weight="bold" font-size="14" fill="#282828" text-anchor="middle" dominant-baseline="middle">Concat</text>
+<text x="630.0" y="132.0" font-size="11" fill="#928374" text-anchor="middle" dominant-baseline="middle">16x / 1c</text>
+<rect x="555.0" y="220" width="150" height="44" rx="3" fill="#F9F5D7" stroke="#3C3836" stroke-width="1.0"/>
+<text x="630.0" y="235.0" font-weight="bold" font-size="14" fill="#282828" text-anchor="middle" dominant-baseline="middle">C2f</text>
+<text x="630.0" y="252.0" font-size="11" fill="#928374" text-anchor="middle" dominant-baseline="middle">16x / 512c</text>
+<rect x="555.0" y="340" width="150" height="44" rx="3" fill="#F9F5D7" stroke="#3C3836" stroke-width="1.0"/>
+<text x="630.0" y="355.0" font-weight="bold" font-size="14" fill="#282828" text-anchor="middle" dominant-baseline="middle">Conv</text>
+<text x="630.0" y="372.0" font-size="11" fill="#928374" text-anchor="middle" dominant-baseline="middle">32x / 512c</text>
+<rect x="555.0" y="460" width="150" height="44" rx="3" fill="#FABD2F" stroke="#3C3836" stroke-width="1.5"/>
+<text x="630.0" y="475.0" font-weight="bold" font-size="14" fill="#282828" text-anchor="middle" dominant-baseline="middle">Concat</text>
+<text x="630.0" y="492.0" font-size="11" fill="#928374" text-anchor="middle" dominant-baseline="middle">32x / 1c</text>
+<rect x="555.0" y="580" width="150" height="44" rx="3" fill="#F9F5D7" stroke="#3C3836" stroke-width="1.0"/>
+<text x="630.0" y="595.0" font-weight="bold" font-size="14" fill="#282828" text-anchor="middle" dominant-baseline="middle">C2f</text>
+<text x="630.0" y="612.0" font-size="11" fill="#928374" text-anchor="middle" dominant-baseline="middle">32x / 1024c</text>
+<rect x="775.0" y="500.0" width="150" height="44" rx="3" fill="#FB4934" stroke="#3C3836" stroke-width="1.0"/>
+<text x="850.0" y="515.0" font-weight="bold" font-size="14" fill="#282828" text-anchor="middle" dominant-baseline="middle">Detect</text>
+<text x="850.0" y="532.0" font-size="11" fill="#928374" text-anchor="middle" dominant-baseline="middle">32x / 1024c</text>
+<path d="M 110.0 144 L 110.0 180" stroke="#504945" stroke-width="1.2" fill="none"  marker-end="url(#arrow)" />
+<path d="M 110.0 224 L 110.0 260" stroke="#504945" stroke-width="1.2" fill="none"  marker-end="url(#arrow)" />
+<path d="M 110.0 304 L 110.0 340" stroke="#504945" stroke-width="1.2" fill="none"  marker-end="url(#arrow)" />
+<path d="M 110.0 384 L 110.0 420" stroke="#504945" stroke-width="1.2" fill="none"  marker-end="url(#arrow)" />
+<path d="M 110.0 464 L 110.0 500" stroke="#504945" stroke-width="1.2" fill="none"  marker-end="url(#arrow)" />
+<path d="M 110.0 544 L 110.0 580" stroke="#504945" stroke-width="1.2" fill="none"  marker-end="url(#arrow)" />
+<path d="M 110.0 624 L 110.0 660" stroke="#504945" stroke-width="1.2" fill="none"  marker-end="url(#arrow)" />
+<path d="M 110.0 704 L 110.0 740" stroke="#504945" stroke-width="1.2" fill="none"  marker-end="url(#arrow)" />
+<path d="M 110.0 784 L 110.0 820" stroke="#504945" stroke-width="1.2" fill="none"  marker-end="url(#arrow)" />
+<path d="M 185.0 842.0 C 220.0 842.0, 220.0 122.0, 255.0 122.0" stroke="#504945" stroke-width="1.2" fill="none" stroke-dasharray="4,2" marker-end="url(#arrow)" />
+<path d="M 330.0 144 L 330.0 220" stroke="#504945" stroke-width="1.2" fill="none"  marker-end="url(#arrow)" />
+<path d="M 185.0 602.0 C 220.0 602.0, 220.0 242.0, 255.0 242.0" stroke="#504945" stroke-width="1.2" fill="none" stroke-dasharray="4,2" marker-end="url(#arrow)" />
+<path d="M 330.0 264 L 330.0 340" stroke="#504945" stroke-width="1.2" fill="none"  marker-end="url(#arrow)" />
+<path d="M 330.0 384 L 330.0 460" stroke="#504945" stroke-width="1.2" fill="none"  marker-end="url(#arrow)" />
+<path d="M 330.0 504 L 330.0 580" stroke="#504945" stroke-width="1.2" fill="none"  marker-end="url(#arrow)" />
+<path d="M 185.0 442.0 C 220.0 442.0, 220.0 602.0, 255.0 602.0" stroke="#504945" stroke-width="1.2" fill="none" stroke-dasharray="4,2" marker-end="url(#arrow)" />
+<path d="M 330.0 624 L 330.0 700" stroke="#504945" stroke-width="1.2" fill="none"  marker-end="url(#arrow)" />
+<path d="M 330.0 744 L 330.0 820" stroke="#504945" stroke-width="1.2" fill="none"  marker-end="url(#arrow)" />
+<path d="M 405.0 842.0 C 480.0 842.0, 480.0 122.0, 555.0 122.0" stroke="#504945" stroke-width="1.2" fill="none"  marker-end="url(#arrow)" />
+<path d="M 405.0 362.0 C 480.0 362.0, 480.0 122.0, 555.0 122.0" stroke="#504945" stroke-width="1.2" fill="none" stroke-dasharray="4,2" marker-end="url(#arrow)" />
+<path d="M 630.0 144 L 630.0 220" stroke="#504945" stroke-width="1.2" fill="none"  marker-end="url(#arrow)" />
+<path d="M 630.0 264 L 630.0 340" stroke="#504945" stroke-width="1.2" fill="none"  marker-end="url(#arrow)" />
+<path d="M 630.0 384 L 630.0 460" stroke="#504945" stroke-width="1.2" fill="none"  marker-end="url(#arrow)" />
+<path d="M 185.0 842.0 C 370.0 842.0, 370.0 482.0, 555.0 482.0" stroke="#504945" stroke-width="1.2" fill="none" stroke-dasharray="4,2" marker-end="url(#arrow)" />
+<path d="M 630.0 504 L 630.0 580" stroke="#504945" stroke-width="1.2" fill="none"  marker-end="url(#arrow)" />
+<path d="M 405.0 722.0 C 590.0 722.0, 590.0 522.0, 775.0 522.0" stroke="#504945" stroke-width="1.2" fill="none" stroke-dasharray="4,2" marker-end="url(#arrow)" />
+<path d="M 705.0 242.0 C 740.0 242.0, 740.0 522.0, 775.0 522.0" stroke="#504945" stroke-width="1.2" fill="none" stroke-dasharray="4,2" marker-end="url(#arrow)" />
+<path d="M 705.0 602.0 C 740.0 602.0, 740.0 522.0, 775.0 522.0" stroke="#504945" stroke-width="1.2" fill="none" stroke-dasharray="4,2" marker-end="url(#arrow)" />
+<text x="110.0" y="55" font-weight="bold" font-size="18" fill="#282828" text-anchor="middle" letter-spacing="1">Backbone</text>
+<text x="480.0" y="55" font-weight="bold" font-size="18" fill="#282828" text-anchor="middle" letter-spacing="1">Neck</text>
+<text x="850.0" y="55" font-weight="bold" font-size="18" fill="#282828" text-anchor="middle" letter-spacing="1">Head</text></svg>

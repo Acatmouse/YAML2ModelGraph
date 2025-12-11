@@ -1,287 +1,295 @@
-# YAML2ModelGraph  
+# YAML2ModelGraph v1.0
 
-[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/)  
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)  
+<div align="right">
 
----
+[English](README_EN.md) | [中文](README.md)
 
-## 项目简介
-
-**YAML2ModelGraph** 是一个将 Ultralytics 模型的 YAML 配置文件，自动生成模型结构图的工具。  
-
-目前支持两种输出形式：
-
-- 基于 **Graphviz** 的矢量结构图（SVG/PNG）
-- 基于 **Mermaid** 的结构图（`.mmd`），方便在 Markdown / 文档网站中直接渲染
-
-它的特点包括：  
-
-- 支持 **backbone、neck 与 head 层** 的分组展示  
-- 自动解析各模块 **输入输出通道**  
-- 支持 **Concat 输出通道自动计算**  
-- 支持 **竖版布局**（Graphviz）、**直角边**，便于论文和文档展示  
-- Mermaid 版本支持 **横板布局**，适合嵌入到 README、文档网站  
-- **美化节点和子图**，直观展示模型结构  
-- 可扩展，可适配 **自定义模块**  
-
----
-
-## 功能特点
-
-1. **YAML 自动解析**  
-   - 读取模型 YAML 文件，自动解析每一层的模块类型、重复次数、输入输出通道及参数。  
-   - 兼容 Ultralytics YOLO 系列的 backbone/head 定义方式。  
-
-2. **自动生成 Graphviz 图（`yml2modelgraph.py`）**  
-   - Backbone、Neck 和 Head 自动分组  
-   - 支持竖版 Top→Bottom 展示  
-   - 线条直角连接，整洁美观  
-   - 支持输出 SVG 或 PNG 格式  
-
-3. **自动生成 Mermaid 图（`yml2modelgraph_mermaid.py`）**  
-   - 输出标准 Mermaid Flowchart 语法（`.mmd`）  
-   - 节点显示信息可配置（例如：只显示模块名，或增加通道、参数等）  
-   - 搭配 Mermaid 在线编辑器、文档平台（如 GitHub / GitLab / MkDocs）即可直接可视化  
-
-4. **模块兼容**  
-   支持常见的 Conv、C3/C2 系列、SPPF、Concat、Detect 等模块，  
-   也可以通过简单修改解析逻辑扩展到自定义模块。  
-
----
-
-## 效果
-
-<details>
-<summary>点击展开查看 Graphviz 效果图</summary>
-
-
-<div align="center">
-<img src="./yolov8_model_graph.svg" alt="banner" width="500">
 </div>
 
-</details>
+[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue)](https://www.python.org/)  
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
-<details>
-<summary>点击展开查看 Mermaid 示例</summary>
-<img src="./yolo11_mermaid.png" alt="banner" width="500">
-</details>
+---
 
-------
+## 📖 项目简介
 
-## 安装
+**YAML2ModelGraph v1.0** 是一个专业的 YOLO 模型架构可视化工具，能够将 Ultralytics YOLO 模型的 YAML 配置文件自动转换为精美的 SVG 架构图。
 
-### 系统依赖（Graphviz 输出）
+### ✨ 核心特性
 
-如果只使用 Mermaid 输出，**可以不安装 Graphviz**。
- 如需 Graphviz 图（SVG/PNG），需要安装：
+- 🎨 **9 种精美主题**：从科研论文风到现代糖果色，满足不同场景需求
+- 📐 **智能布局**：自动识别 Backbone、Neck、Head 三大模块，智能多列折叠
+- 🔗 **清晰连线**：支持多种连线样式（直线、贝塞尔曲线、曼哈顿路由）
+- 📊 **信息丰富**：显示模块类型、步长（stride）、通道数等关键信息
+- 🎯 **即开即用**：无需额外依赖，纯 Python + SVG 输出
+
+---
+
+## 🖼️ 主题展示
+
+<div align="center">
+
+### 9 种主题风格一览
+
+<table>
+<tr>
+<td align="center"><b>Paper</b><br/>科研标准风</td>
+<td align="center"><b>Candy</b><br/>现代糖果风</td>
+<td align="center"><b>Dark</b><br/>暗黑极客风</td>
+</tr>
+<tr>
+<td><img src="svg/graph_paper.svg" width="300"/></td>
+<td><img src="svg/graph_candy.svg" width="300"/></td>
+<td><img src="svg/graph_dark.svg" width="300"/></td>
+</tr>
+<tr>
+<td align="center"><b>Ocean</b><br/>科技海洋风</td>
+<td align="center"><b>Retro</b><br/>复古暖阳风</td>
+<td align="center"><b>Blueprint</b><br/>工程蓝图风</td>
+</tr>
+<tr>
+<td><img src="svg/graph_ocean.svg" width="300"/></td>
+<td><img src="svg/graph_retro.svg" width="300"/></td>
+<td><img src="svg/graph_blueprint.svg" width="300"/></td>
+</tr>
+<tr>
+<td align="center"><b>Forest</b><br/>森林氧吧风</td>
+<td align="center"><b>Paper RYB</b><br/>学术三原色 ⭐</td>
+<td align="center"><b>Journal</b><br/>现代期刊风</td>
+</tr>
+<tr>
+<td><img src="svg/graph_forest.svg" width="300"/></td>
+<td><img src="svg/graph_paper_ryb.svg" width="300"/></td>
+<td><img src="svg/graph_journal.svg" width="300"/></td>
+</tr>
+</table>
+
+> 💡 **提示**：所有主题的完整 SVG 文件位于 `svg/` 目录，可直接查看或用于论文/文档
+
+</div>
+
+---
+
+## 🚀 快速开始
+
+### 安装依赖
 
 ```bash
-sudo apt update -y                # Ubuntu/Debian
-sudo apt install graphviz -y      
-
-brew install graphviz             # macOS
+pip install pyyaml
 ```
 
-### Python 依赖
+### 基本使用
 
 ```bash
-pip install pyyaml graphviz
+python main.py examples/yolov8.yaml output.svg --theme paper
 ```
 
-> 说明：Mermaid 版本只依赖 `pyyaml`，但一并安装 `graphviz` 也无妨。
+**参数说明：**
+- `examples/yolov8.yaml`：输入的 YAML 模型配置文件
+- `output.svg`：输出的 SVG 文件路径（可选，默认为 `yolo_graph.svg`）
+- `--theme paper`：选择主题风格（可选，默认为 `paper`）
 
-------
+---
 
-## 使用方法
+## 🎨 主题风格
 
-### 1. 生成 Graphviz 图（原脚本）
+v1.0 版本提供 **9 种精心设计的主题**，适用于不同场景：
+
+### 1. 科研标准风 (Paper) - 默认主题
+
+**特点：** 黑白灰配色、Times New Roman 字体、极简线条  
+**场景：** 专为 IEEE / CVPR / 毕业论文插图设计，打印效果最好
 
 ```bash
-python yml2modelgraph.py path/to/model.yaml [out_name] [--format svg|png]
+python main.py examples/yolov8.yaml svg/graph_paper.svg --theme paper
 ```
 
-- `path/to/model.yaml`：模型 YAML 文件路径
-- `[out_name]`：输出文件名（默认 `model_graph_fixed`）
-- `[--format svg|png]`：输出格式（默认 `svg`）
+### 2. 现代糖果风 (Candy)
 
-#### 示例
+**特点：** 莫兰迪色系（淡蓝/淡橙）、大圆角、无衬线字体  
+**场景：** 适合 PPT 演示、技术博客、海报，视觉效果活泼现代
 
 ```bash
-python yml2modelgraph.py yolov8s.yaml yolov8s_graph --format svg
+python main.py examples/yolov8.yaml svg/graph_candy.svg --theme candy
 ```
 
-将生成文件 `yolov8s_graph.svg`，包含 Backbone、Neck、Head 的详细结构及每层输入输出通道。
+### 3. 暗黑极客风 (Dark)
 
-------
-
-### 2. 生成 Mermaid 图（新增脚本）
-
-Mermaid 版本会生成 `.mmd` 文件，可以直接粘到 Markdown 中使用，
- 或者丢到 Mermaid 在线编辑器中查看。
+**特点：** 深色背景、高对比度线条、代码风格字体  
+**场景：** 适合深色模式阅读、屏幕演示、体现"硬核"技术感
 
 ```bash
-python yml2modelgraph_mermaid.py path/to/model.yaml [out_name]
+python main.py examples/yolov8.yaml svg/graph_dark.svg --theme dark
 ```
 
-- `path/to/model.yaml`：模型 YAML 文件路径
-- `[out_name]`：输出 Mermaid 文件名（默认 `model_graph`，生成 `model_graph.mmd`）
+### 4. 科技海洋风 (Ocean)
 
-#### 示例
+**特点：** 不同深浅的蓝色调、清爽专业  
+**场景：** 适合商务汇报、科技公司技术白皮书
 
 ```bash
-python yml2modelgraph_mermaid.py yolov8s.yaml yolov8s_mermaid
+python main.py examples/yolov8.yaml svg/graph_ocean.svg --theme ocean
 ```
 
-------
+### 5. 复古暖阳风 (Retro)
 
-## 输出示例（Graphviz）
+**特点：** 暖米色背景（Gruvbox 风格）、打字机字体  
+**场景：** 适合长时间阅读（护眼）、追求复古文艺感的文档
 
-每个节点显示信息包括：
-
-- 模块类型
-- 输入通道 → 输出通道
-- 重复次数 n
-- 模块参数 args
-
-示例节点：
-
-```
-Conv
-64 → 128
-n=1
-[3, 3, 2]
+```bash
+python main.py examples/yolov8.yaml svg/graph_retro.svg --theme retro
 ```
 
-Edges 使用直角线显示，保证图像整洁美观。Backbone / Neck / Head 分组显示，便于理解模型结构。
+### 6. 工程蓝图风 (Blueprint)
 
-------
+**特点：** 深蓝底色、白色细线条、CAD 工程字体  
+**场景：** 体现"架构设计"、"底层逻辑"的硬核工程图
 
-## 输出示例（Mermaid）
-
-Mermaid 版本的单个节点典型形式（具体字段可配置）：
-
-```mermaid
-flowchart LR
-    %% YAML -> Model 3-column graph
-    Input(("Input<br>C=3")):::input
-    subgraph Backbone
-        direction TB
-        L0["Conv"]:::backbone
-        L1["Conv"]:::backbone
-        L2["C3k2"]:::backbone
-        L3["Conv"]:::backbone
-        L4["C3k2"]:::backbone
-        L5["Conv"]:::backbone
-        L6["C3k2"]:::backbone
-        L7["Conv"]:::backbone
-        L8["C3k2"]:::backbone
-        L9["SPPF"]:::backbone
-        L10["C2PSA"]:::backbone
-    end
-
-    subgraph Neck
-        direction TB
-        L11["nn.Upsample"]:::neck
-        L12["Concat"]:::neck
-        L13["C3k2"]:::neck
-        L14["nn.Upsample"]:::neck
-        L15["Concat"]:::neck
-        L16["C3k2"]:::neck
-        L17["Conv"]:::neck
-        L18["Concat"]:::neck
-        L19["C3k2"]:::neck
-        L20["Conv"]:::neck
-        L21["Concat"]:::neck
-        L22["C3k2"]:::neck
-    end
-
-    subgraph Head
-        direction TB
-        L23["Detect"]:::head
-    end
-
-    T1((" ")):::invis
-    T2((" ")):::invis
-    T3((" ")):::invis
-
-    T1 --- L0
-    T2 --- L11
-    T3 --- L23
-    Input --> L0
-    L0 --> L1
-    L1 --> L2
-    L2 --> L3
-    L3 --> L4
-    L4 --> L5
-    L5 --> L6
-    L6 --> L7
-    L7 --> L8
-    L8 --> L9
-    L9 --> L10
-    L10 --> L11
-    L11 --> L12
-    L6 --> L12
-    L12 --> L13
-    L13 --> L14
-    L14 --> L15
-    L4 --> L15
-    L15 --> L16
-    L16 --> L17
-    L17 --> L18
-    L13 --> L18
-    L18 --> L19
-    L19 --> L20
-    L20 --> L21
-    L10 --> L21
-    L21 --> L22
-    L16 --> L23
-    L19 --> L23
-    L22 --> L23
-
-    linkStyle 0,1,2 stroke:none
-
-    classDef backbone fill:#C2E7D9,stroke:#2F4F4F,stroke-width:1px;
-    classDef neck fill:#FFD6A5,stroke:#2F4F4F,stroke-width:1px;
-    classDef head fill:#FFB5A7,stroke:#2F4F4F,stroke-width:1px;
-    classDef input fill:#FFF0B3,stroke:#555,stroke-width:1px;
-    classDef invis fill:none,stroke:none;
+```bash
+python main.py examples/yolov8.yaml svg/graph_blueprint.svg --theme blueprint
 ```
 
-你可以通过脚本配置：
+### 7. 森林氧吧风 (Forest)
 
-- 只显示模块名：`Conv`
-- 显示模块名 + 通道：`Conv<br>64→128`
-- 显示更多信息：`Conv<br>64→128<br>n=2<br>[3, 3, 2]`
+**特点：** 绿色系配色、清新自然  
+**场景：** 护眼风格，或用于强调环保/轻量化的主题
 
-根据文档场景控制信息密度。
+```bash
+python main.py examples/yolov8.yaml svg/graph_forest.svg --theme forest
+```
 
-------
+### 8. 学术三原色风 (Paper RYB) ⭐ 推荐
 
-## 项目结构
+**特点：** 经典红黄蓝配色、极度降低饱和度，模块区分清晰  
+**场景：** 适合需要清晰区分 Backbone/Neck/Head 三大模块结构的论文插图
 
-```text
+```bash
+python main.py examples/yolov8.yaml svg/graph_paper_ryb.svg --theme paper_ryb
+```
+
+### 9. 现代期刊风 (Journal)
+
+**特点：** 极简冷淡风、背景几乎隐形，最严谨的学术风格  
+**场景：** 适合 Springer 或 Nature 子刊的图表风格
+
+```bash
+python main.py examples/yolov8.yaml svg/graph_journal.svg --theme journal
+```
+
+---
+
+## 📋 功能详解
+
+### 自动模块识别
+
+工具会自动识别 YAML 配置中的模块类型，包括：
+- **Backbone 模块**：Conv、C2f、SPPF 等
+- **Neck 模块**：Upsample、Concat、C2f 等
+- **Head 模块**：Detect 等
+
+### 智能布局算法
+
+- **Backbone**：单列垂直布局，清晰展示特征提取流程
+- **Neck**：智能多列折叠，当模块过多时自动分列显示
+- **Head**：根据输入源自动对齐，保持视觉连贯性
+
+### 连线样式
+
+- **垂直直连**：同列相邻模块使用直线连接
+- **贝塞尔曲线**：跨列连接使用平滑曲线
+- **曼哈顿路由**：Backbone 到 Neck 使用直角路由
+- **虚线标识**：跨模块或长距离连接使用虚线
+
+### 信息展示
+
+每个节点显示：
+- **主标签**：模块类型（如 Conv、C2f、Detect）
+- **副标签**：步长和通道数（如 `8x / 256c`）
+
+---
+
+## 📁 项目结构
+
+```
 YAML2ModelGraph/
-├── yml2modelgraph.py            # 基于 Graphviz 的核心脚本
-├── yml2modelgraph_mermaid.py    # 基于 Mermaid 的导出脚本（新增）
-├── README.md                    # 项目说明
-├── LICENSE                      # MIT License
-└── examples/                    # 示例 YAML 文件
+├── main.py              # 主程序入口
+├── yolo_graph.py        # 核心解析和布局逻辑
+├── themes.py            # 主题配置定义
+├── README.md            # 项目文档
+├── examples/            # 示例 YAML 文件
+│   ├── yolov8.yaml
+│   ├── yolo11.yaml
+│   ├── yolo12.yaml
+│   └── yolov9s.yaml
+└── svg/                 # 生成的 SVG 示例
+    ├── graph_paper.svg
+    ├── graph_candy.svg
+    ├── graph_dark.svg
+    ├── graph_ocean.svg
+    ├── graph_retro.svg
+    ├── graph_blueprint.svg
+    ├── graph_forest.svg
+    ├── graph_paper_ryb.svg
+    └── graph_journal.svg
 ```
 
-------
+---
 
-## 开发与贡献
+## 🔧 高级用法
 
-欢迎贡献：
+### 自定义主题
 
-- 增加 HTML 或交互式导出
-- 优化图形美化与排版
-- 改进 Mermaid 版本的布局与样式（如主题、配色、分组方式）
+编辑 `themes.py` 文件，可以：
+- 修改现有主题的颜色、字体、圆角等参数
+- 添加新的主题配置
+- 调整布局参数（节点大小、间距等）
 
-Fork 本项目，提交 Pull Request 即可。
+### 支持的 YAML 格式
 
-------
+工具兼容 Ultralytics YOLO 系列的 YAML 格式：
 
-## 许可证
+```yaml
+backbone:
+  - [-1, 1, Conv, [64, 3, 2]]
+  - [-1, 3, C2f, [128, True]]
+  # ...
+
+head:
+  - [-1, 1, nn.Upsample, [None, 2, "nearest"]]
+  - [[-1, 6], 1, Concat, [1]]
+  # ...
+```
+
+---
+
+## 📸 效果预览
+
+所有主题的示例图已保存在 `svg/` 目录下，您可以直接查看不同主题的视觉效果。
+
+---
+
+## 🤝 贡献
+
+欢迎提交 Issue 和 Pull Request！
+
+**可能的改进方向：**
+- 添加更多主题风格
+- 支持自定义节点样式
+- 优化复杂模型的布局算法
+- 添加交互式 SVG 功能
+
+---
+
+## 📄 许可证
 
 本项目使用 **MIT License** 开源，允许商用、修改和分发。
+
+---
+
+## 🙏 致谢
+
+感谢 Ultralytics 团队提供的 YOLO 框架和模型定义格式。
+
+---
+
+**版本：** v1.0  
