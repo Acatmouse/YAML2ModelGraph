@@ -206,6 +206,25 @@ Each node displays:
 - **Main Label**: Module type (e.g., Conv, C2f, Detect)
 - **Sub Label**: Stride and channel number (e.g., `8x / 256c`)
 
+#### Information Display Configuration
+
+You can customize the information displayed on nodes through the `DISPLAY_CONFIG` dictionary in `main.py`:
+
+```python
+DISPLAY_CONFIG = {
+    "show_channels": True,  # Display channels (e.g., 64->128 or 128c)
+    "show_repeats":  True,  # Display repeat count (e.g., n=3)
+    "show_stride":   True,  # Display stride multiplier (e.g., /32x)
+    "show_args":     False, # Display detailed arguments (e.g., a:3,2) -> ⚠️ Turn this off if text overflows
+}
+```
+
+**Configuration Options:**
+- `show_channels`: Whether to display channel number changes (e.g., `64->128` or `128c`)
+- `show_repeats`: Whether to display module repeat count (e.g., `n=3` means repeated 3 times)
+- `show_stride`: Whether to display stride multiplier (e.g., `/32x` means 32x downsampling)
+- `show_args`: Whether to display detailed arguments (e.g., `a:3,2`), **Note**: If node information is too much causing text overflow, it's recommended to set this option to `False`
+
 ---
 
 ## 📁 Project Structure
@@ -244,6 +263,24 @@ Edit the `themes.py` file to:
 - Modify existing theme colors, fonts, corner radius, etc.
 - Add new theme configurations
 - Adjust layout parameters (node size, spacing, etc.)
+
+### Customize Information Display
+
+Edit the `DISPLAY_CONFIG` dictionary in `main.py` to control which information is displayed on nodes:
+
+```python
+DISPLAY_CONFIG = {
+    "show_channels": True,  # Display channel numbers
+    "show_repeats":  True,  # Display repeat count
+    "show_stride":   True,  # Display stride multiplier
+    "show_args":     False, # Display detailed arguments (recommended to disable to avoid text overflow)
+}
+```
+
+**Usage Tips:**
+- If the generated diagram has too much text on nodes causing overflow, set `show_args` to `False`
+- For simple model visualization, you can disable some options to get a cleaner diagram
+- For detailed architecture analysis, you can enable all options to get complete information
 
 ### Supported YAML Format
 

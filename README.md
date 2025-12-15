@@ -100,9 +100,9 @@ v1.0 版本提供 **9 种精心设计的主题**，适用于不同场景：
 **特点：** 黑白灰配色、Times New Roman 字体、极简线条  
 **场景：** 专为 IEEE / CVPR / 毕业论文插图设计，打印效果最好
 
-```bash
+
+``````bash
 python main.py examples/yolov8.yaml svg/graph_paper.svg --theme paper
-```
 
 ### 2. 现代糖果风 (Candy)
 
@@ -206,6 +206,25 @@ python main.py examples/yolov8.yaml svg/graph_journal.svg --theme journal
 - **主标签**：模块类型（如 Conv、C2f、Detect）
 - **副标签**：步长和通道数（如 `8x / 256c`）
 
+#### 信息显示配置
+
+在 `main.py` 中可以通过 `DISPLAY_CONFIG` 字典自定义节点上显示的信息：
+
+```python
+DISPLAY_CONFIG = {
+    "show_channels": True,  # 显示通道 (如 64->128 或 128c)
+    "show_repeats":  True,  # 显示堆叠数 (如 n=3)
+    "show_stride":   True,  # 显示倍率 (如 /32x)
+    "show_args":     False, # 显示详细参数 (如 a:3,2) -> ⚠️ 如果字太多溢出，请关掉这个
+}
+```
+
+**配置项说明：**
+- `show_channels`：是否显示通道数变化（如 `64->128` 或 `128c`）
+- `show_repeats`：是否显示模块堆叠次数（如 `n=3` 表示重复 3 次）
+- `show_stride`：是否显示步长倍率（如 `/32x` 表示下采样 32 倍）
+- `show_args`：是否显示详细参数（如 `a:3,2`），**注意**：如果节点信息过多导致文字溢出，建议将此选项设为 `False`
+
 ---
 
 ## 📁 项目结构
@@ -243,6 +262,24 @@ YAML2ModelGraph/
 - 修改现有主题的颜色、字体、圆角等参数
 - 添加新的主题配置
 - 调整布局参数（节点大小、间距等）
+
+### 自定义信息显示
+
+编辑 `main.py` 中的 `DISPLAY_CONFIG` 字典，可以控制节点上显示哪些信息：
+
+```python
+DISPLAY_CONFIG = {
+    "show_channels": True,  # 显示通道数
+    "show_repeats":  True,  # 显示堆叠数
+    "show_stride":   True,  # 显示步长倍率
+    "show_args":     False, # 显示详细参数（建议关闭以避免文字溢出）
+}
+```
+
+**使用建议：**
+- 如果生成的图表中节点文字过多导致溢出，可以将 `show_args` 设为 `False`
+- 对于简单的模型可视化，可以关闭部分选项以获得更简洁的图表
+- 对于详细的架构分析，可以全部开启以获得完整信息
 
 ### 支持的 YAML 格式
 
