@@ -45,5 +45,8 @@ def main():
         print(f"✅ Saved to {out_name}")
     except Exception as e:
         print(f"❌ Error: {e}")
+        print("Please ensure the YAML file is valid and try again.")
+        print("If the problem persists, report an issue at")
 
 if __name__ == "__main__":
+    main()

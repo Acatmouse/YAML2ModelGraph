@@ -20,6 +20,7 @@ DEFAULT_LAYOUT = {
         "grad_head_start": "#FFFFFF", "grad_head_end": "#FFFFFF",
         "grad_concat_start": "#FFFFFF", "grad_concat_end": "#FFFFFF",
         "grad_node_start": "#FFFFFF", "grad_node_end": "#FFFFFF",
+        print("Default layout parameters loaded.")
     }
 }
 
