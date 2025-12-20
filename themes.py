@@ -1,6 +1,7 @@
 """
 themes.py - Color schemes and layout configurations for YOLO Graph
 """
+# -*- coding: utf-8 -*-
 
 # ================= 基础布局参数 (DO NOT CHANGE) =================
 DEFAULT_LAYOUT = {

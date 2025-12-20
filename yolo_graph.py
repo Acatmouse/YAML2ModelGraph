@@ -1,9 +1,10 @@
 """
 yolo_graph.py - Core logic for parsing YAML and generating SVG
 """
+# -*- coding: utf-8 -*-
 import yaml
 import math
-
+import xml.sax.saxutils
 class SVGBuilder:
     def __init__(self, config):
         self.config = config
@@ -316,4 +317,6 @@ def parse_and_layout(yaml_path, out_file, config, display_config):
     svg.add_bg_lane(config["lane_width_bb"], head_start_x - config["lane_width_bb"], svg.height, "Neck", config["colors"]["bg_neck"])
     svg.add_bg_lane(head_start_x, config["lane_width_head"], svg.height, "Head", config["colors"]["bg_head"])
 
-    with open(out_file, 'w') as f: f.write(svg.generate())
+    
+    with open(out_file, 'w', encoding='utf-8') as f:
+        f.write(svg.generate())

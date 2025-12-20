@@ -4,11 +4,11 @@ YOLO Graph Generator v2.0
 Usage:
     python main.py model.yaml [output.svg] [--theme paper|pro|candy|dark]
 """
+# -*- coding: utf-8 -*-
 
 import sys
 import themes
 import yolo_graph
-
 # ================= 🔧 信息显示配置 =================
 # 将这里的 True/False 改为你想要的状态
 DISPLAY_CONFIG = {
